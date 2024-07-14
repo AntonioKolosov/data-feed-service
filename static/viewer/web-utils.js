@@ -3,7 +3,8 @@
 // const BE_LOCATOR = 'messintegrator.onrender.com';
 // const BE_LOCATOR = '9bc5-129-159-137-238.ngrok-free.app';
 // const BE_LOCATOR = 'neat-krill-honest.ngrok-free.app'
-const BE_LOCATOR = '127.0.0.1:8003' // render
+// const BE_LOCATOR = '127.0.0.1:8003' // render data-feed-service.onrender.com
+const BE_LOCATOR = 'data-feed-service.onrender.com'
 const WSS_LOCATOR = 'neat-krill-honest.ngrok-free.app' // ngrock
 
 const url = `wss:${WS_LOCATOR}/ws`

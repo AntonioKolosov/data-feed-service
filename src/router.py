@@ -15,7 +15,8 @@ router = APIRouter()
 @router.get("/webdata/{lang}")
 async def getweb_data(lang):
     print('getweb_data')
-    api_url = f'http://127.0.0.1:8005/webdata/{lang}'
+    # api_url = f'http://127.0.0.1:8005/webdata/{lang}'
+    api_url = f'https://neat-krill-honest.ngrok-free.app/webdata/{lang}'
     async with httpx.AsyncClient() as client:
         response = await client.get(api_url)
         return response.json()
@@ -24,7 +25,8 @@ async def getweb_data(lang):
 # Redirect to the integrator
 @router.get("/push/{message}")
 async def push_to_connected_websockets(message: str):
-    api_url = f'http://127.0.0.1:8005/push/{int(message)}'
+    # api_url = f'http://127.0.0.1:8005/push/{int(message)}'
+    api_url = f'https://neat-krill-honest.ngrok-free.app/push/{int(message)}'
     async with httpx.AsyncClient() as client:
         response = await client.get(api_url)
         return response.json()

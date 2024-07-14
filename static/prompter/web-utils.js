@@ -1,8 +1,7 @@
 // @ts-nocheck
 // Be interactions
-// const BE_LOCATOR = 'messintegrator.onrender.com';
-// const BE_LOCATOR = 'neat-krill-honest.ngrok-free.app'
-const BE_LOCATOR = '127.0.0.1:8003' // render url for feed service
+// const BE_LOCATOR = '127.0.0.1:8003' // https://data-feed-service.onrender.com
+const BE_LOCATOR = 'data-feed-service.onrender.com'
 // Get data from backend
 async function fetchData(lang = 'ru') {
   const url = `https://${BE_LOCATOR}/webdata/${lang}`;
