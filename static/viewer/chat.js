@@ -28,6 +28,10 @@ document.addEventListener('DOMContentLoaded', () => {
   let subTitles = [];
   let messageIndex = 0;  
 
+  const updateCounter = (index) => {
+    messCounter.innerHTML = (index + 1)  + ' / ' + subTitles.length 
+  };
+
   fetchData().then( data => {
     const content = data.content;
     // The first line is the play Title
@@ -48,10 +52,6 @@ document.addEventListener('DOMContentLoaded', () => {
       messageIndex = index;
       createNewMessage()
     }
-  };
-
-  const updateCounter = (index) => {
-    messCounter.innerHTML = (index + 1)  + ' / ' + subTitles.length 
   };
 
   const createNewMessage = () => {
