@@ -1,11 +1,11 @@
 // @ts-nocheck
 // Be interactions
-// const BE_LOCATOR = '127.0.0.1:8003' // local data-feed-service
-const BE_LOCATOR = 'data-feed-service.onrender.com'
+// const BE_LOCATOR = 'http://127.0.0.1:8003' // local data-feed-service
+const BE_LOCATOR = 'https://data-feed-service.onrender.com'
 
 // Get data from backend
 async function fetchData(lang = 'ru') {
-  const url = `https://${BE_LOCATOR}/webdata/${lang}`;
+  const url = `${BE_LOCATOR}/webdata/${lang}`;
   const response = await fetch(url);
   if (response.ok) {
       const result = await response.json();  
@@ -20,7 +20,7 @@ async function fetchData(lang = 'ru') {
 
 // Push data to backend
 async function sendMessageIndex(index) {
-  const url = `https://${BE_LOCATOR}/push/`+index;
+  const url = `${BE_LOCATOR}/push/`+index;
   const response = await fetch(url);
   if (response.ok) {
       return {}
