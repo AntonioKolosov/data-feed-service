@@ -1,13 +1,13 @@
-title = "TW Bot"
+title = "DF SRV"
 description = """
-Telegram Bot with webhook
+Data feed service
 
-Telegram server will:
+Data feed service will:
 
 * **send messages**.
 
 """
-version = "0.0.1"
+version = "1.0.0"
 contact = {
     "name": "Antonio Kolosov",
     "url": "https://github.com/AntonioKolosov",
