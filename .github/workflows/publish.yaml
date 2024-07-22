@@ -1,0 +1,32 @@
+name: Publish To GitHub
+
+on:
+  workflow_dispatch:
+    branches: [main]
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+  build-and-push-image:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+    
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push
+        run: |
+          docker build . --build-arg=READ_FROM_REGISTRY=${{ secrets.READ_FROM_REGISTRY }} --tag ghcr.io/antoniokolosov/data-feed-service-x64:1.0.0
+          docker push ghcr.io/antoniokolosov/data-feed-service-x64:1.0.0

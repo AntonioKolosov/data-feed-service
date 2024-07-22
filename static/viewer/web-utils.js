@@ -1,11 +1,11 @@
 // @ts-nocheck
 // Be interactions
 // const BE_LOCATOR = 'http://127.0.0.1:8003' // local data-feed-service
-const BE_LOCATOR = 'https://data-feed-service.onrender.com' //render
+const BE_LOCATOR = 'https://4a3b-129-159-137-238.ngrok-free.app'
 
 
-const WSS_LOCATOR = 'ws://127.0.0.1:8005' // local integrator
-// const WSS_LOCATOR = 'wss://messintegrator.onrender.com' // render
+// const WSS_LOCATOR = 'ws://127.0.0.1:8003' // local integrator
+const WSS_LOCATOR = 'wss://4a3b-129-159-137-238.ngrok-free.app'
 
 const url = `${WSS_LOCATOR}/ws`
 const ws = new WebSocket(url);

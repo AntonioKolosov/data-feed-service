@@ -18,13 +18,16 @@ such as a website or mobile phone app.
 ├── README.md
 ├── .gitignore
 ├── .github
-│   ├── workflows
-│       ├── build.yaml
+│   └── workflows
+│       └── publish.yaml
 ├── .pre-commit-config.yaml
 ├── src
 │   ├── app.py
+│   ├── config.py
 │   ├── description.py
-│   ├── router.py
+│   ├── loader.py
+│   ├── notifier.py
+│   └── router.py
 ├── static
 │   ├── prompter
 │   │    ├── chat.js
@@ -32,25 +35,21 @@ such as a website or mobile phone app.
 │   │    ├── index.html
 │   │    ├── selectors.js
 │   │    ├── style.css
-│   │    ├── web-utils.js
-│   ├── viewer
+│   │    └── web-utils.js
+│   └── viewer
 │       ├── chat.js
 │       ├── dom-utils.js
 │       ├── index.html
 │       ├── selectors.js
 │       ├── style.css
-│       ├── web-utils.js
+│       └── web-utils.js
 ├── main.py
 ├── pytest.ini
 ├── requirements.txt
 ├── requirements_dev.txt
-├── src
-│   ├── __init__.py
-│   ├── app.py
-│   ├── router.py
-├── tests
+└── tests
     ├── __init__.py
-    ├── test_app.py
+    └── test_app.py
 ```
 
 ### Setup the project for the development
@@ -97,3 +96,13 @@ flake8 -v --max-line-length=79 --max-doc-length=72 --ignore=E203,W503 ./src
 ```bash
 pytest
 ```
+
+### Build the docker file
+```bash
+docker build data-feed-service-x64:1.0.0 . --tag ghcr.io/antoniokolosov/data-feed-service-aarch64:1.0.0
+```
+
+### Publish to the Github registry
+```bash
+docker push ghcr.io/antoniokolosov/data-feed-service-aarch64:1.0.0
+``` 
