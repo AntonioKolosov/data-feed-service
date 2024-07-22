@@ -97,12 +97,17 @@ flake8 -v --max-line-length=79 --max-doc-length=72 --ignore=E203,W503 ./src
 pytest
 ```
 
-### Build the docker file
+### Build the docker file 
 ```bash
-docker build data-feed-service-x64:1.0.0 . --tag ghcr.io/antoniokolosov/data-feed-service-aarch64:1.0.0
+docker build . --tag ghcr.io/antoniokolosov/data-feed-service-aarch64:1.0.0
 ```
 
 ### Publish to the Github registry
 ```bash
 docker push ghcr.io/antoniokolosov/data-feed-service-aarch64:1.0.0
 ``` 
+
+### Build and publish to the Github registry the docker file for x64 architecture
+```
+from GitHub repository run the publish action
+```
