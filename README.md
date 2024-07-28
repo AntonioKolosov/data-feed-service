@@ -1,17 +1,18 @@
 # Data feed service
 
-A data feed is an ongoing stream of structured data that provides users
-with updates of current information from one or more sources. 
-A data feed can stream continuously or be delivered on demand. 
-Data feeds make it possible to have new content or updates delivered to 
-a computer or mobile device as soon as it is published. 
-The same technologies are also used to supply data to other software.
-
-A data feed is an online mechanism for sending up-to-date data or content
-to users, either automatically or in response to users' demands. 
-This data is usually structured and sent from a server to a specific destination,
-such as a website or mobile phone app.
-
+```
+A data feed is an ongoing stream of structured data that provides users   
+with updates of current information from one or more sources.    
+A data feed can stream continuously or be delivered on demand.    
+Data feeds make it possible to have new content or updates delivered to    
+a computer or mobile device as soon as it is published.    
+The same technologies are also used to supply data to other software.  
+   
+A data feed is an online mechanism for sending up-to-date data or content   
+to users, either automatically or in response to users' demands.    
+This data is usually structured and sent from a server to a specific destination,   
+such as a website or mobile phone app.   
+```
 
 ## Project structure
 ``` bash
@@ -104,6 +105,7 @@ docker build . --tag ghcr.io/antoniokolosov/data-feed-service-aarch64:1.0.0
 
 ### Publish to the Github registry
 ```bash
+docker login -u <your-github-username> ghcr.io
 docker push ghcr.io/antoniokolosov/data-feed-service-aarch64:1.0.0
 ``` 
 

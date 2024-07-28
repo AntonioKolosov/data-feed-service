@@ -1,5 +1,6 @@
 fastapi==0.95.0
-uvicorn==0.21.1
-python-dotenv==1.0.0
 pymongo==4.6.0
+pyngrok==6.0.0
+python-dotenv==1.0.0
+uvicorn==0.21.1
 websockets==12.0
