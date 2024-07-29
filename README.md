@@ -60,11 +60,12 @@ For this project will be installed:
 * [httpx](https://www.python-httpx.org/) -  HTTP client for Python 3
 * [pip](https://pypi.org/project/pip/) - for install packages
 * [pipdeptree](https://pypi.org/project/pipdeptree/) - for sorting packages
-* [pre-commit](https://pre-commit.com/) - Git hook scripts are useful for identifying simple issues before submission to code review.
-* [pyngrok](https://pypi.org/project/pyngrok/) - a reverse proxy tool that opens secure tunnels from public URLs to localhost
-* [pytest](https://docs.pytest.org/en/7.3.x/) - for unit tests
-* [python-dotenv](https://pypi.org/project/python-dotenv/) - for reading .env files
-* [uvicorn](https://www.uvicorn.org/) - an ASGI web server implementation for Python.
+* [pre-commit](https://pre-commit.com/) - Git hook scripts are useful for identifying simple issues before submission to code review   
+* [pyngrok](https://pypi.org/project/pyngrok/) - a reverse proxy tool that opens secure tunnels from public URLs to localhost   
+* [pymongo](https://pymongo.readthedocs.io/en/stable/index.html) -  Python distribution containing tools for working with MongoDB   
+* [pytest](https://docs.pytest.org/en/7.3.x/) - for unit tests  
+* [python-dotenv](https://pypi.org/project/python-dotenv/) - for reading .env files  
+* [uvicorn](https://www.uvicorn.org/) - an ASGI web server implementation for Python.  
 
 ### Create virtual environment
 ```bash
@@ -72,20 +73,30 @@ python3 -m venv .dfsrvvenv
 ```
 
 ### Install dependencies
+    - development   
 ```bash
 pip install -r requirements_dev.txt
 ```
+    - production   
+```bash
+pip install -r requirements.txt
+```
 
 ### Run (localy)
+    - development   
 ```bash
 python main.py [port]
+```
+    - production   
+```bash
+EXTERNAL_HTPPS=<value>  python main.py [port]
 ```
 
 ### Check from browser
 ```bash
-1. http://127.0.0.1:8005/
+1. http://127.0.0.1:8003/
 ```
-Hello I am your Bot
+Data feed service is live
 ```
 
 ### Linting
@@ -101,6 +112,7 @@ pytest
 ### Build the docker file 
 ```bash
 docker build . --tag ghcr.io/antoniokolosov/data-feed-service-aarch64:1.0.0
+docker build . --tag ghcr.io/antoniokolosov/data-feed-service-x64:1.0.0
 ```
 
 ### Publish to the Github registry
@@ -111,5 +123,5 @@ docker push ghcr.io/antoniokolosov/data-feed-service-aarch64:1.0.0
 
 ### Build and publish to the Github registry the docker file for x64 architecture
 ```
-from GitHub repository run the publish action
+from GitHub repository Actions run the publish action
 ```

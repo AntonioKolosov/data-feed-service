@@ -6,6 +6,8 @@
 # Env
 .env
 # CI
+# 
+main.py
 
 # Docker
 docker-compose.yml
