@@ -1,5 +1,5 @@
 # Start from the official Python base image. 
-FROM python:3.10
+FROM python:3.10-slim
 
 # Set the current working directory to /code.
 # This is where we'll put the requirements.txt 
