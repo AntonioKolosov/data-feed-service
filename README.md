@@ -111,17 +111,17 @@ pytest
 
 ### Build the docker file 
 ```bash
-docker build . --tag ghcr.io/antoniokolosov/data-feed-service-aarch64:1.0.0
-docker build . --tag ghcr.io/antoniokolosov/data-feed-service-x64:1.0.0
+docker build . --tag antonioklsv/data-feed-service-aarch64:1.0.0
+docker build . --tag antonioklsv/data-feed-service-x64:1.0.0
 ```
 
-### Publish to the Github registry
+### Publish to the Docker registry
 ```bash
 docker login -u <your-github-username> ghcr.io
-docker push ghcr.io/antoniokolosov/data-feed-service-aarch64:1.0.0
+docker push antonioklsv/data-feed-service-aarch64:1.0.0
 ``` 
 
-### Build and publish to the Github registry the docker file for x64 architecture
+### Build and publish to the Docker registry the docker file for x64 architecture
 ```
 from GitHub repository Actions run the publish action
 ```
