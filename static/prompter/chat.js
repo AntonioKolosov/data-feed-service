@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const chatMessages = document.querySelector('.chat-messages')
   const nextBtn = document.querySelector('.next-button')
   const messCounter = document.querySelector('.counter')
+  const messSumm = document.querySelector('.mess-summ')
   const resetChatBtn = document.querySelector('.reset-chat-button')
   const settingSpan = document.querySelector('.settings-span')
   const closeButton = document.getElementById('close')
@@ -43,11 +44,11 @@ document.addEventListener('DOMContentLoaded', () => {
     chatHeader.innerHTML = playTitle;
     subTitles = content.slice(1);
     // Show the first subset
-    createInitialMessagesSubset()
+    createInitialMessagesSubset();
   });
 
   const updateCounter = (index) => {
-    messCounter.innerHTML = (index)  + ' / ' + subTitles.length
+    messCounter.value = (index);
   };  
 
   const markMessage = () => {
@@ -90,6 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
       messageIndex++;
     }
     updateCounter(0);
+    messSumm.innerHTML = ' / ' + subTitles.length;
   }
 
   const createNewMessage = () => {

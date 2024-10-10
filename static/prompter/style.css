@@ -138,30 +138,42 @@ body {
 }
 
 .counter {
-  margin: auto;
+  border: none;
+  display: inline;
+  font-family: inherit;  
+  font-size: inherit;
+  width: 2.25em;
+  margin-left: auto;
+  /* margin-right: auto; */
+  color: #a89b9b;
+  background-color: #15202b;
+}
+
+.mess-summ {
+  margin-right: auto;
   color: #a89b9b;
 }
 
 .next-button {
-  margin-right: 46px;
+  align-self: left;
+  margin: auto;
   border: none;
   padding: 0.325em;
   border-radius: 0.5em;
   cursor: pointer;
-  width:100px;
+  width:160px;
   height: 40px;
 }
 
 .reset-chat-button {
   margin: auto;
-  margin-left: 40px;
+  align-self: right;
   border: none;
   padding: 0.325em;
   border-radius: 0.5em;
   cursor: pointer;
-  width:100px;
+  width:60px;
   height: 40px;
-  align-self: end;
 }
 
 .settings-span {
