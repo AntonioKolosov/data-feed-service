@@ -20,7 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const chatMessages = document.querySelector('.chat-messages')
   const nextBtn = document.querySelector('.next-button')
   const messCounter = document.querySelector('.counter')
-  const messSumm = document.querySelector('.mess-summ')
   const resetChatBtn = document.querySelector('.reset-chat-button')
   const settingSpan = document.querySelector('.settings-span')
   const closeButton = document.getElementById('close')
@@ -91,7 +90,6 @@ document.addEventListener('DOMContentLoaded', () => {
       messageIndex++;
     }
     updateCounter(0);
-    messSumm.innerHTML = ' / ' + subTitles.length;
   }
 
   const createNewMessage = () => {

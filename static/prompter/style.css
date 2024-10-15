@@ -138,19 +138,7 @@ body {
 }
 
 .counter {
-  border: none;
-  display: inline;
-  font-family: inherit;  
-  font-size: inherit;
-  width: 2.25em;
-  margin-left: auto;
-  /* margin-right: auto; */
-  color: #a89b9b;
-  background-color: #15202b;
-}
-
-.mess-summ {
-  margin-right: auto;
+  margin-right: 46px;
   color: #a89b9b;
 }
 
