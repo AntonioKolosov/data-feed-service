@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   const updateCounter = (index) => {
-    messCounter.value = (index);
+    messCounter.innerHTML = (index) + ' / ' + subTitles.length;
   };  
 
   const markMessage = () => {
