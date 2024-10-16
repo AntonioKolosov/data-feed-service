@@ -10,15 +10,22 @@ const doMessageFirst = (index) => {
 	const mess = document.querySelector(`#message${index}`)
 	mess.classList.add('first-message') 
 }
-// Do font large and change background
-const markMessageAsCurrernt = (index) => {
-	const mess = document.querySelector(`#message${index}`)
-	mess.classList.add('current-message') 
-}
-// Do font normal and restore background
-const markMessageAsRegular = (index) => {
-	const mess = document.querySelector(`#message${index}`)
-	mess.classList.remove('current-message')  
-}
 
+const doMessageCurrent = (currentMessageIndexShift) => {
+	const chatMessages = document.querySelector('#chat-messages');
+	const messagesLength = chatMessages.childElementCount;
+	console.log("messagesLength", messagesLength);
+
+	if ((messagesLength > currentMessageIndexShift)) {
+		// Do the message font large and change background
+		const curMess = chatMessages.children[messagesLength - (currentMessageIndexShift + 1)];
+		curMess.classList.add('current-message');
+
+		// Do the message font normal and restore background
+		if (messagesLength > (currentMessageIndexShift + 1)) {
+			const mess = chatMessages.children[messagesLength - (currentMessageIndexShift + 2)];
+			mess.classList.remove('current-message');
+		}
+	}
+};
 

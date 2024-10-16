@@ -20,7 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const chatMessages = document.querySelector('.chat-messages')
   const nextBtn = document.querySelector('.next-button')
   const messCounter = document.querySelector('.counter')
-  const resetChatBtn = document.querySelector('.reset-chat-button')
   const settingSpan = document.querySelector('.settings-span')
   const closeButton = document.getElementById('close')
   const smallSize = document.getElementById('small-font-size-selector')
@@ -50,24 +49,23 @@ document.addEventListener('DOMContentLoaded', () => {
     messCounter.innerHTML = (index) + ' / ' + subTitles.length;
   };  
 
-  const markMessage = () => {
-    if (messageIndex === 0) {
+  const markMessage = (startFrom) => {
+    if (messageIndex === startFrom) {
       doMessageFirst(messageIndex)  
     }
-    if ((messageIndex >= currentMessageIndexShift)) {   
-      markMessageAsCurrernt(messageIndex - currentMessageIndexShift) 
-      if (messageIndex > currentMessageIndexShift) {
-        markMessageAsRegular(messageIndex - currentMessageIndexShift - 1)
-      }
-    }
+    doMessageCurrent(currentMessageIndexShift);
   };
 
   const nextMessage = (e) => {
     e.preventDefault();
+
+    const startFrom = Number(resetStartFrom.value);
+    resetStartFrom.value = "";
+    console.log("startFrom", startFrom);
     
     let index = messageIndex - currentMessageIndexShift - 1;
     if (messageIndex < subTitles.length) {
-      createNewMessage();
+      createNewMessage(startFrom);
       messageIndex++;
       updateCounter(index + currentMessageIndexShift - 1);
     } 
@@ -84,15 +82,15 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   }
 
-  const createInitialMessagesSubset = () => {
+  const createInitialMessagesSubset = (startFrom = 0) => {
     for (let i = 0; i <= currentMessageIndexShift; i++) {
-      createNewMessage();
+      createNewMessage(startFrom);
       messageIndex++;
     }
     updateCounter(0);
   }
 
-  const createNewMessage = () => {
+  const createNewMessage = (startFrom) => {
     
     const message = subTitles[messageIndex];
     const messageText = message.chank;
@@ -100,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
     /* Add message to DOM */
     const newMessageElement = createChatMessageElement(messageText, 'message' + messageIndex)
     chatMessages.innerHTML += newMessageElement;
-    markMessage();
+    markMessage(startFrom);
 
     /*  Scroll to bottom of chat messages */
     chatMessages.scrollTop = chatMessages.scrollHeight
@@ -110,12 +108,16 @@ document.addEventListener('DOMContentLoaded', () => {
   nextBtn.addEventListener('click', nextMessage)
 
   resetChatBtn.addEventListener('click', () => {
-    chatMessages.innerHTML = ''
-    messageIndex = 0;
-    createInitialMessagesSubset()
+    const startFrom = Number(resetStartFrom.value);
+    console.log("resetStartFrom", startFrom);
+
+    // Clean clients
+    chatMessages.innerHTML = '';
+    messageIndex = startFrom;
+    createInitialMessagesSubset(startFrom);
     sendMessageIndex(-10000).then( data => {
       console.log("sent", -10000);
-    }) 
+    }); 
   })
   
   settingSpan.addEventListener('click', () => {

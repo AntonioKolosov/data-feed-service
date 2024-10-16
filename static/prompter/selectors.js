@@ -8,7 +8,10 @@ const enSelectorBtn = document.querySelector('#en-language-selector')
 const heSelectorBtn = document.querySelector('#he-language-selector')
 const ruSelectorBtn = document.querySelector('#ru-language-selector')
 
-let currentFontSize = 'M'
+const resetChatBtn = document.querySelector('#reset-chat-button');
+const resetStartFrom = document.querySelector('#reset-start-from');
+
+let currentFontSize = 'S'
 
 const changeFontSize = (size) => {
   currentFontSize = size
