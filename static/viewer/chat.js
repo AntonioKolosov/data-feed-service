@@ -26,7 +26,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initialization
   chatHeader.innerHTML = '';
   let subTitles = [];
-  let messageIndex = 0;  
+  let messageIndex = 0;
+  let resetFlag = false;
 
   const updateCounter = (index) => {
     messCounter.innerHTML = (index + 1)  + ' / ' + subTitles.length 
@@ -64,8 +65,9 @@ document.addEventListener('DOMContentLoaded', () => {
     chatMessages.innerHTML += newMessageElement;
     updateCounter(messageIndex);
 
-    if (messageIndex === 0) {
-      doMessageFirst(messageIndex)  
+    if ((messageIndex === 0) || (resetFlag)) {
+      doMessageFirst(messageIndex);
+      resetFlag = false;
     }
      if ((messageIndex >= 0)) {   
       markMessageAsCurrernt(messageIndex) 
@@ -82,6 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
     chatMessages.innerHTML = ''
     messageIndex = 0;
     updateCounter(-1);
+    resetFlag = true;
   };
 
   settingSpan.addEventListener('click', () => {
