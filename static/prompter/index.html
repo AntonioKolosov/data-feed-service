@@ -23,12 +23,16 @@
       <input type="checkbox" id="popup-checkbox" hidden>      
       <div class="popup" id="popup">
         <div class="popup-content">
-            <button class="button selector-button" id="small-font-size-selector">S</button>
-            <button class="button selector-button current-font-size" id="medium-font-size-selector">M</button>
+            <button class="button selector-button current-font-size" id="small-font-size-selector">S</button>
+            <button class="button selector-button " id="medium-font-size-selector">M</button>
             <button class="button selector-button" id="large-font-size-selector">L</button>
-            <button class="popup-btn" id="close">Close</button>
-        </div>
-    </div>      
+            <button class="button selector-button" id="reset-chat-button">Reset</button>   
+            <input type="text" id="reset-start-from" inputmode="numeric" pattern="[0-9]*"/>
+          </div>
+        <div class="popup-content-close-btn">
+          <button class="popup-btn" id="close">Close</button>
+      </div>
+  </div>      
     </span>
     </div>
 
@@ -41,7 +45,6 @@
       <div class="controls">
         <button class="button next-button">NEXT</button>
         <p class="counter"></p>
-        <button class="button reset-chat-button">RESET</button>   
       </div>
     </div>
 
