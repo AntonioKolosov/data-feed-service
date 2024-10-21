@@ -20,5 +20,5 @@ jobs:
 
       - name: Build and push
         run: |
-          docker build . --tag antonioklsv/data-feed-service-x64:1.0.0
-          docker push antonioklsv/data-feed-service-x64:1.0.0
+          docker build . --tag antonioklsv/data-feed-service-x64:1.0.1
+          docker push antonioklsv/data-feed-service-x64:1.0.1
